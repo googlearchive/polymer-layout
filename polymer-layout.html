@@ -148,12 +148,15 @@ license that can be found in the LICENSE file.
       },
       prepare: function() {
         var parent = this.parentNode.host || this.parentNode;
+        // explicit position harmful on <body>
+        if (parent.localName !== 'body') {
         // may recalc
-        var cs = window.getComputedStyle(parent);
-        if (cs.position === 'static') {
-          parent.style.position = 'relative';
+          var cs = window.getComputedStyle(parent);
+          if (cs.position === 'static') {
+            parent.style.position = 'relative';
+          }
+          //parent.style.overflow = 'hidden';
         }
-        //parent.style.overflow = 'hidden';
         // changes will cause another recalc at next validation step
         var vertical;
         this.parentNode.childNodes.array().forEach(function(c, i) {
