@@ -1,7 +1,7 @@
 {
   "name": "polymer-layout",
-  "version": "0.0.0",
+  "private": true,
   "dependencies": {
-    "polymer": "git://github.com/Polymer/polymer"
+    "polymer": "Polymer/polymer#master"
   }
 }
